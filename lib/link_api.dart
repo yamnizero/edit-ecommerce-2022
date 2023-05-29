@@ -25,6 +25,8 @@ class AppLinkApi {
   static const String verifyCodeForgetPassword =
       "$server/forgetpassword/new_verifycode.php";
 
+  /// ======================= Notification ==================  ///
+  static const String notification = "$server/notification.php";
   /// ======================= Home ==================  ///
 
   /// home
