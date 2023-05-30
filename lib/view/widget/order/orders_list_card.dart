@@ -1,5 +1,6 @@
 import 'package:ecommerc_2022/controller/orders/pending_controller.dart';
 import 'package:ecommerc_2022/core/constant/color.dart';
+import 'package:ecommerc_2022/core/constant/name_routes.dart';
 import 'package:ecommerc_2022/data/model/orders_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -65,7 +66,11 @@ class CardOrdersList extends GetView<OrdersPendingController> {
                 ),
                 const Spacer(),
                 MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.toNamed(AppRoutes.ordersDetails , arguments: {
+                       "ordersModel" : listData
+                    });
+                  },
                   child: const Text(
                     "Details",
                   ),

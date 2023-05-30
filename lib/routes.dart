@@ -17,6 +17,7 @@ import 'package:ecommerc_2022/view/screen/home_screen.dart';
 import 'package:ecommerc_2022/view/screen/items.dart';
 import 'package:ecommerc_2022/view/screen/myFavorite.dart';
 import 'package:ecommerc_2022/view/screen/onboarding.dart';
+import 'package:ecommerc_2022/view/screen/orders/order_details.dart';
 import 'package:ecommerc_2022/view/screen/orders/pending.dart';
 import 'package:ecommerc_2022/view/screen/product_details.dart';
 
@@ -56,5 +57,10 @@ List<GetPage<dynamic>>? routes= [
   ///CheckOut
   GetPage(name: AppRoutes.checkOut, page: ()=> const CheckOut()) ,
   GetPage(name: AppRoutes.pendingOrders, page: ()=> const PendingOrders()) ,
+
+  ///OrdersDetails
+  GetPage(name: AppRoutes.ordersDetails, page: ()=> const OrdersDetails()) ,
+
+
 
 ];
