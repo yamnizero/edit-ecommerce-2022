@@ -60,7 +60,10 @@ class AppLinkApi {
 
   ///CheckOut
   static const String checkOrders = "$server/orders/checkout.php";
+
+  ///OrdersDetails
   static const String pendingOrders = "$server/orders/pending.php";
+  static const String detailsOrders = "$server/orders/details.php";
 
 
 
