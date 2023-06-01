@@ -8,7 +8,7 @@ import 'package:jiffy/jiffy.dart';
 
 class CardOrdersList extends GetView<OrdersPendingController> {
   final OrdersModel listData;
-  //safs
+
 
   const CardOrdersList({Key? key, required this.listData}) : super(key: key);
 
@@ -76,7 +76,18 @@ class CardOrdersList extends GetView<OrdersPendingController> {
                   ),
                   color: AppColor.thirdColor,
                   textColor: AppColor.secondColor,
-                )
+                ),
+                const SizedBox(width: 10,),
+                 if(listData.ordersStatus! == "0") MaterialButton(
+                  onPressed: () {
+                   controller.deleteOrders(listData.ordersId!);
+                  },
+                  child: const Text(
+                    "Delete",
+                  ),
+                  color: AppColor.thirdColor,
+                  textColor: AppColor.secondColor,
+                ),
               ],
             ),
           ],

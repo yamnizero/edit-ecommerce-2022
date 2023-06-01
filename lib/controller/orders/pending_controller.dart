@@ -58,6 +58,23 @@ class OrdersPendingController extends GetxController{
     }
     update();
   }
+
+  deleteOrders(String orderId) async{
+    data.clear();
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await ordersPendingDataData.deleteData(orderId);
+    print("========================== $response controller");
+    statusRequest  = handlingData(response);
+    if(StatusRequest.success == statusRequest){
+      if(response['status'] == "success"){
+        refreshOrder();
+      }else{
+        statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
+  }
   refreshOrder(){
     getOrders();
   }

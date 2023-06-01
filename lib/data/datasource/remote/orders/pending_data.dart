@@ -12,4 +12,11 @@ class OrdersPendingData{
     });
     return response.fold((l) => l, (r) => r);
   }
+
+  deleteData(String orderId) async {
+    var response = await crud.postData(AppLinkApi.deleteOrders,{
+      "id" : orderId,
+    });
+    return response.fold((l) => l, (r) => r);
+  }
 }
