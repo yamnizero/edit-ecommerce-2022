@@ -68,7 +68,7 @@ class Settings extends StatelessWidget {
                     title: const Text('Archive'),
                     trailing: const Icon(Icons.archive),
                     onTap: () {
-                      Get.toNamed(AppRoutes.viewAddress);
+                      Get.toNamed(AppRoutes.archiveOrders);
                     },
                   ),
                   const Divider(),

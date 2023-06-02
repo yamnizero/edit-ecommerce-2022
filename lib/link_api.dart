@@ -63,6 +63,7 @@ class AppLinkApi {
 
   ///OrdersDetails
   static const String pendingOrders = "$server/orders/pending.php";
+  static const String archiveOrders = "$server/orders/archive.php";
   static const String detailsOrders = "$server/orders/details.php";
   static const String deleteOrders = "$server/orders/delete.php";
 
