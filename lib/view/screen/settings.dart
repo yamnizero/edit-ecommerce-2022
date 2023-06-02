@@ -3,6 +3,7 @@ import 'package:ecommerc_2022/core/constant/color.dart';
 import 'package:ecommerc_2022/core/constant/imageasset.dart';
 import 'package:ecommerc_2022/core/constant/name_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:get/get.dart';
 
 class Settings extends StatelessWidget {
@@ -91,7 +92,10 @@ class Settings extends StatelessWidget {
                   ListTile(
                     title: const Text('Contact us'),
                     trailing: const Icon(Icons.phone_callback_outlined),
-                    onTap: () {},
+                    onTap: () async {
+
+                      await launchUrl(Uri.parse("tel:+249907970206"));
+                    },
                   ),
                   const Divider(),
                   ListTile(
