@@ -1,11 +1,13 @@
+import 'package:ecommerc_2022/controller/home_controller.dart';
 import 'package:ecommerc_2022/core/class/Statusrequest.dart';
 import 'package:ecommerc_2022/data/datasource/remote/offers_data.dart';
 import 'package:ecommerc_2022/data/model/items_model.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import '../core/function/handlingData_controller.dart';
 
 
-class OffersController extends GetxController{
+class OffersController extends SearchMixController{
 
   OfferData offerData = OfferData(Get.find());
 
@@ -18,8 +20,8 @@ class OffersController extends GetxController{
     statusRequest  = handlingData(response);
     if(StatusRequest.success == statusRequest){
       if(response['status'] == "success"){
-        List listData  = response['data'] ;
-        data.addAll(listData.map((e) => ItemsModel.fromJson(e)));
+        List listDataOffer  = response['data'] ;
+        data.addAll(listDataOffer.map((e) => ItemsModel.fromJson(e)));
       }else{
         statusRequest = StatusRequest.failure;
       }
@@ -29,6 +31,7 @@ class OffersController extends GetxController{
   @override
   void onInit() {
     getData();
+    search  = TextEditingController();
     super.onInit();
   }
 }

@@ -7,9 +7,7 @@ import 'package:ecommerc_2022/link_api.dart';
 import 'package:ecommerc_2022/view/widget/home/custom_list_categories_home.dart';
 import 'package:ecommerc_2022/view/widget/home/custom_title_home.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-
 import '../widget/custom_appbar.dart';
 import '../widget/home/custom_card_suprise_home.dart';
 import '../widget/home/custome_list_items_home.dart';

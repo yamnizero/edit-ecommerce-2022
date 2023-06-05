@@ -27,12 +27,12 @@ class HomeScreenControllerImp extends HomeScreenController{
       "icon" : Icons.home
     },
     {
-      "title" : "notify",
+      "title" : "notifications",
       "icon" : Icons.notifications_active_outlined
     },
     {
-      "title" : "profile",
-      "icon" : Icons.person_pin_sharp
+      "title" : "offers",
+      "icon" : Icons.local_offer_outlined
     },
     {
       "title" : "settings",
