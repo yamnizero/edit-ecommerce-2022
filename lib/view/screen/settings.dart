@@ -84,16 +84,13 @@ class Settings extends StatelessWidget {
                   ListTile(
                     title: const Text('About us'),
                     trailing: const Icon(Icons.help_rounded),
-                    onTap: () {
-
-                    },
+                    onTap: () {},
                   ),
                   const Divider(),
                   ListTile(
                     title: const Text('Contact us'),
                     trailing: const Icon(Icons.phone_callback_outlined),
                     onTap: () async {
-
                       await launchUrl(Uri.parse("tel:+249907970206"));
                     },
                   ),

@@ -1,5 +1,6 @@
 import 'package:ecommerc_2022/view/screen/home.dart';
 import 'package:ecommerc_2022/view/screen/notification.dart';
+import 'package:ecommerc_2022/view/screen/offers.dart';
 import 'package:ecommerc_2022/view/screen/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,10 +17,7 @@ class HomeScreenControllerImp extends HomeScreenController{
   List<Widget> listPage =[
     const HomePage(),
     const NotificationScreen(),
-    Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: const [Center(child: Text("Profile"),)],
-    ),
+    const OffersView(),
     const Settings(),
   ];
 

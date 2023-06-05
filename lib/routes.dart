@@ -16,6 +16,7 @@ import 'package:ecommerc_2022/view/screen/checkout.dart';
 import 'package:ecommerc_2022/view/screen/home_screen.dart';
 import 'package:ecommerc_2022/view/screen/items.dart';
 import 'package:ecommerc_2022/view/screen/myFavorite.dart';
+import 'package:ecommerc_2022/view/screen/offers.dart';
 import 'package:ecommerc_2022/view/screen/onboarding.dart';
 import 'package:ecommerc_2022/view/screen/orders/archive.dart';
 import 'package:ecommerc_2022/view/screen/orders/order_details.dart';
@@ -49,6 +50,7 @@ List<GetPage<dynamic>>? routes= [
   GetPage(name: AppRoutes.productDetails, page: ()=> const ProductDetails()) ,
   GetPage(name: AppRoutes.myFavorite, page: ()=> const MyFavorite()) ,
   GetPage(name:  AppRoutes.cart, page: () => const Cart()),
+  //GetPage(name:  AppRoutes.offers, page: () => const OffersView()),
 
   ///Address
   GetPage(name: AppRoutes.viewAddress, page: ()=> const ViewAddress()) ,
