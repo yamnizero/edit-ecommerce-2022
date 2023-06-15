@@ -84,6 +84,8 @@ dependencies:
   #notifications
   flutter_ringtone_player: ^3.2.0
 
+  rating_dialog: ^2.0.4
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

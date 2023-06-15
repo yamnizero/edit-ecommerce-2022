@@ -70,6 +70,8 @@ class AppLinkApi {
   ///Offer
   static const String offers = "$server/offers.php";
 
+  ///Rating
+  static const String rating = "$server/rating.php";
 
 
 

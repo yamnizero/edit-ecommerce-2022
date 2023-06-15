@@ -1,4 +1,6 @@
 import 'package:ecommerc_2022/core/class/Statusrequest.dart';
+import 'package:ecommerc_2022/core/constant/color.dart';
+import 'package:ecommerc_2022/core/constant/name_routes.dart';
 import 'package:ecommerc_2022/core/function/handlingData_controller.dart';
 import 'package:ecommerc_2022/core/services/services.dart';
 import 'package:ecommerc_2022/data/datasource/remote/orders/archive_data.dart';
@@ -55,6 +57,26 @@ class OrdersArchiveController extends GetxController{
       if(response['status'] == "success"){
         List listData = response['data'];
         data.addAll(listData.map((e) => OrdersModel.fromJson(e)));
+      }else{
+        statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
+  }
+
+  submitRating(String ordersId,double rating,String comment)async{
+    data.clear();
+    statusRequest = StatusRequest.loading;
+    update();
+    var response = await ordersArchiveData.ratingData(
+       ordersId,comment,rating.toString()
+    );
+    print("========================== $response controller");
+    statusRequest  = handlingData(response);
+    if(StatusRequest.success == statusRequest){
+      if(response['status'] == "success"){
+        // statusRequest = StatusRequest.success;
+        getOrders();
       }else{
         statusRequest = StatusRequest.failure;
       }

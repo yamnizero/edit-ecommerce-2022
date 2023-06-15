@@ -3,6 +3,7 @@ import 'package:ecommerc_2022/controller/orders/archive_controller.dart';
 import 'package:ecommerc_2022/core/constant/color.dart';
 import 'package:ecommerc_2022/core/constant/name_routes.dart';
 import 'package:ecommerc_2022/data/model/orders_model.dart';
+import 'package:ecommerc_2022/view/widget/order/dialog_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
@@ -74,6 +75,17 @@ class CardOrdersListArchive extends GetView<OrdersArchiveController> {
                   },
                   child: const Text(
                     "Details",
+                  ),
+                  color: AppColor.thirdColor,
+                  textColor: AppColor.secondColor,
+                ),
+                const SizedBox(width: 10,),
+               if (listData.ordersRating == "0") MaterialButton(
+                  onPressed: () {
+                    showDialogRating(context,listData.ordersId!);
+                  },
+                  child: const Text(
+                    "Rating",
                   ),
                   color: AppColor.thirdColor,
                   textColor: AppColor.secondColor,
