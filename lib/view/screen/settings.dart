@@ -48,14 +48,14 @@ class Settings extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  ListTile(
-                    title: const Text('Disable Notification'),
-                    trailing: Switch(
-                      onChanged: (val) {},
-                      value: true,
-                    ),
-                    // onTap: (){},
-                  ),
+                  // ListTile(
+                  //   title: const Text('Disable Notification'),
+                  //   trailing: Switch(
+                  //     onChanged: (val) {},
+                  //     value: true,
+                  //   ),
+                  //   // onTap: (){},
+                  // ),
                   const Divider(),
                   ListTile(
                     title: const Text('Orders'),

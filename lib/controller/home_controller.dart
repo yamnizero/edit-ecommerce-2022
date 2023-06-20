@@ -27,6 +27,7 @@ class  HomeControllerImp extends HomeController{
 
   List categories = [];
   List items = [];
+  List announcementData = [];
 
 
   //search
@@ -67,6 +68,7 @@ class  HomeControllerImp extends HomeController{
       if(response['status'] == "success"){
         categories.addAll(response['categories']['data']);
         items.addAll(response['items']['data']);
+        announcementData.addAll(response['announcement']['data']);
       }else{
         statusRequest = StatusRequest.failure;
       }

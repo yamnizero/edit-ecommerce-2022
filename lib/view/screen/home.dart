@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(HomeControllerImp());
+    HomeControllerImp controller = Get.put(HomeControllerImp());
 
     return GetBuilder<HomeControllerImp>(
       builder: (controller) => Container(
@@ -43,19 +43,19 @@ class HomePage extends StatelessWidget {
               widget: !controller.isSearch
                   ? Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        CustomCardSurpriseHome(
-                          titleSurprise: "A summer surprise",
-                          bodySurprise: "Cashback 20%",
+                      children:  [
+                       if(controller.announcementData.isNotEmpty) CustomCardSurpriseHome(
+                          titleSurprise: "${controller.announcementData[0]['announcement_title']}",
+                          bodySurprise:  "${controller.announcementData[0]['announcement_body']}",
                         ),
-                        CustomTitleHome(
+                       const  CustomTitleHome(
                           titleHome: "Categories",
                         ),
-                        CustomListCategoriesHome(),
-                        CustomTitleHome(
-                          titleHome: "Product for you",
+                        const CustomListCategoriesHome(),
+                        const CustomTitleHome(
+                          titleHome: "Top Selling",
                         ),
-                        CustomListItemsHome(),
+                        const CustomListItemsHome(),
                       ],
                     )
                   : ListItemsSearch(listDataSearch: controller.listData,),

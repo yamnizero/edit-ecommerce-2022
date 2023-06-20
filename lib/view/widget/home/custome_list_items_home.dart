@@ -23,42 +23,47 @@ class CustomListItemsHome extends GetView<HomeControllerImp> {
   }
 }
 
-class ItemsHome extends StatelessWidget {
+class ItemsHome extends GetView<HomeControllerImp> {
   final ItemsModel itemsModel;
   const ItemsHome({Key? key, required this.itemsModel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          padding: const EdgeInsets.symmetric(
-              horizontal: 20, vertical: 10),
-          margin: const EdgeInsets.symmetric(horizontal: 10),
-          child: Image.network(
-            "${AppLinkApi.imagesItems}/${itemsModel.itemsImage}",
-            height: 100,
-            width: 150,
-            fit: BoxFit.fill,
+    return InkWell(
+      onTap: (){
+        controller.goToPageProductDetails(itemsModel);
+      },
+      child: Stack(
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(
+                horizontal: 20, vertical: 10),
+            margin: const EdgeInsets.symmetric(horizontal: 10),
+            child: Image.network(
+              "${AppLinkApi.imagesItems}/${itemsModel.itemsImage}",
+              height: 100,
+              width: 150,
+              fit: BoxFit.fill,
+            ),
           ),
-        ),
-        Container(
-          height: 120,
-          width: 200,
-          decoration: BoxDecoration(
-              color: AppColor.black.withOpacity(0.3),
-              borderRadius: BorderRadius.circular(20)),
-        ),
-        Positioned(
-            left: 10,
-            child: Text(
-              "${itemsModel.itemsName}",
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 17),
-            ))
-      ],
+          Container(
+            height: 120,
+            width: 200,
+            decoration: BoxDecoration(
+                color: AppColor.black.withOpacity(0.3),
+                borderRadius: BorderRadius.circular(20)),
+          ),
+          Positioned(
+              left: 10,
+              child: Text(
+                "${itemsModel.itemsName}",
+                style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17),
+              ))
+        ],
+      ),
     );
   }
 }

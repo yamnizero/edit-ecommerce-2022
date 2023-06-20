@@ -68,7 +68,7 @@ class ItemsControllerImp  extends SearchMixController{
     update();
   }
 
-  @override
+
   goToPageProductDetails( itemsModel){
     Get.toNamed("productDetails",arguments: {
       "itemsModel" : itemsModel
