@@ -44,9 +44,9 @@ class HomePage extends StatelessWidget {
                   ? Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children:  [
-                       if(controller.announcementData.isNotEmpty) CustomCardSurpriseHome(
-                          titleSurprise: "${controller.announcementData[0]['announcement_title']}",
-                          bodySurprise:  "${controller.announcementData[0]['announcement_body']}",
+                         CustomCardSurpriseHome(
+                          titleSurprise: "${controller.titleHomeCard}",
+                          bodySurprise:  "${controller.bodyHomeCard}",
                         ),
                        const  CustomTitleHome(
                           titleHome: "Categories",

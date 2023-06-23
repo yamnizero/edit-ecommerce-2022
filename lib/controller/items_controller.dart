@@ -22,6 +22,8 @@ class ItemsControllerImp  extends SearchMixController{
   String? catId ;
   int? selectedCategories ;
   ItemsData itemsData =ItemsData(Get.find());
+  String deliveryTime = "" ;
+
   List data = [];
   late StatusRequest statusRequest;
   MyServices myServices = Get.find();
@@ -35,6 +37,7 @@ class ItemsControllerImp  extends SearchMixController{
 
   @override
   intialData() {
+    deliveryTime = myServices.sharedPreferences.getString("deliveryTime")!;
     categories = Get.arguments['categories'];
     selectedCategories = Get.arguments['selectedCategories'];
     catId = Get.arguments['catId'];

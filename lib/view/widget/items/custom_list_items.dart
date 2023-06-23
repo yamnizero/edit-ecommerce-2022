@@ -48,29 +48,20 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                         fontSize: 16,
                         fontWeight: FontWeight.bold),
                   ),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //   children: [
-                  //     const Text(
-                  //       "Rating 3.5",
-                  //       textAlign: TextAlign.center,
-                  //     ),
-                  //     Container(
-                  //       height: 22,
-                  //       alignment: Alignment.bottomCenter,
-                  //       child: Row(
-                  //         children: [
-                  //           ...List.generate(
-                  //               5,
-                  //               (index) => const Icon(
-                  //                     Icons.star,
-                  //                     size: 15,
-                  //                   ))
-                  //         ],
-                  //       ),
-                  //     )
-                  //   ],
-                  // ),
+                  Row(
+                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children:  [
+                       Text(
+                        "${controller.deliveryTime} Minute",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontFamily: "sans"),
+                      ),
+                      const SizedBox(width: 4,),
+                      Container(
+                        margin: const EdgeInsets.only(top: 5),
+                          child: const Icon(Icons.timer_sharp,color: AppColor.grey,))
+                    ],
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
