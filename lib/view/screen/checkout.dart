@@ -2,6 +2,7 @@ import 'package:ecommerc_2022/controller/checkout_controller.dart';
 import 'package:ecommerc_2022/core/class/handling_data_view.dart';
 import 'package:ecommerc_2022/core/constant/color.dart';
 import 'package:ecommerc_2022/core/constant/imageasset.dart';
+import 'package:ecommerc_2022/core/constant/name_routes.dart';
 import 'package:ecommerc_2022/view/widget/checkOut/card_delivery_type.dart';
 import 'package:ecommerc_2022/view/widget/checkOut/card_payment_method.dart';
 import 'package:ecommerc_2022/view/widget/checkOut/card_shipping_address.dart';
@@ -51,9 +52,10 @@ class CheckOut extends StatelessWidget {
                       onTap: () {
                         controller.choosesPaymentMethod("cash");
                       },
-                      child:  CardPaymentMethodCheckOut(
+                      child: CardPaymentMethodCheckOut(
                         title: "Cash On Delivery",
-                        isActive: controller.paymentMethod == "cash" ? true : false,
+                        isActive:
+                            controller.paymentMethod == "cash" ? true : false,
                       )),
                   const SizedBox(
                     height: 10,
@@ -62,9 +64,10 @@ class CheckOut extends StatelessWidget {
                       onTap: () {
                         controller.choosesPaymentMethod("card");
                       },
-                      child:  CardPaymentMethodCheckOut(
+                      child: CardPaymentMethodCheckOut(
                         title: "Payment Cards",
-                        isActive: controller.paymentMethod == "card" ? true : false,
+                        isActive:
+                            controller.paymentMethod == "card" ? true : false,
                       )),
                   const SizedBox(
                     height: 20,
@@ -81,14 +84,16 @@ class CheckOut extends StatelessWidget {
                     height: 10,
                   ),
                   Row(
-                    children:  [
+                    children: [
                       InkWell(
                         onTap: () {
                           controller.choosesDeliveryType("delivery");
                         },
                         child: CardDeliveryTypeCheckOut(
                           title: "Delivery",
-                          isActive: controller.deliveryType == "delivery" ? true : false,
+                          isActive: controller.deliveryType == "delivery"
+                              ? true
+                              : false,
                           imageName: AppImageAsset.deliveryImage2,
                         ),
                       ),
@@ -101,7 +106,9 @@ class CheckOut extends StatelessWidget {
                         },
                         child: CardDeliveryTypeCheckOut(
                           title: "Receive",
-                          isActive: controller.deliveryType == "receive" ? true : false,
+                          isActive: controller.deliveryType == "receive"
+                              ? true
+                              : false,
                           imageName: AppImageAsset.driveThroughImage,
                         ),
                       ),
@@ -110,35 +117,61 @@ class CheckOut extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  if(controller.deliveryType == "delivery")
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        "Shipping Address",
-                        style: TextStyle(
-                          color: AppColor.primaryColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
+                  // "delivery" ==> 0
+                  if (controller.deliveryType == "delivery")
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        if (controller.dataAddress.isNotEmpty)
+                        const Text(
+                          "Shipping Address",
+                          style: TextStyle(
+                            color: AppColor.primaryColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      ...List.generate(controller.dataAddress.length, (index) =>InkWell(
-                        onTap: () {
-                          controller.choosesShippingAddress(controller.dataAddress[index].addressId!);
-                        },
-                        child: CardShippingAddressCheckOut(
-                          title: "${controller.dataAddress[index].addressName}",
-                          body: " city: ${controller.dataAddress[index].addressCity}  street: ${controller.dataAddress[index].addressStreet}",
-                          isActive: controller.addressId == controller.dataAddress[index].addressId ? true :false,
+                        if (controller.dataAddress.isEmpty)
+                          InkWell(
+                            onTap: () {
+                              Get.toNamed(AppRoutes.addAddress);
+                            },
+                            child: Container(
+                              child: const Center(
+                                  child: Text(
+                                "Please Add Shipping Address \n Click Here",
+                                textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: AppColor.primaryColor,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                              )),
+                            ),
+                          ),
+                        const SizedBox(
+                          height: 10,
                         ),
-                      )),
-
-                    ],
-                  )
-
+                        ...List.generate(
+                            controller.dataAddress.length,
+                            (index) => InkWell(
+                                  onTap: () {
+                                    controller.choosesShippingAddress(controller
+                                        .dataAddress[index].addressId!);
+                                  },
+                                  child: CardShippingAddressCheckOut(
+                                    title:
+                                        "${controller.dataAddress[index].addressName}",
+                                    body:
+                                        " city: ${controller.dataAddress[index].addressCity}  street: ${controller.dataAddress[index].addressStreet}",
+                                    isActive: controller.addressId ==
+                                            controller
+                                                .dataAddress[index].addressId
+                                        ? true
+                                        : false,
+                                  ),
+                                )),
+                      ],
+                    )
                 ],
               ),
             )),

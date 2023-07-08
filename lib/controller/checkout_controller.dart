@@ -55,6 +55,7 @@ class CheckOutController extends GetxController {
       if(response['status'] == "success"){
         List listData = response['data'];
         dataAddress.addAll(listData.map((e) => AddressModel.fromJson(e)));
+        addressId = dataAddress[0].addressId.toString();
       }else{
         statusRequest = StatusRequest.failure;
       }
@@ -65,8 +66,12 @@ class CheckOutController extends GetxController {
   checkOut()async{
     if(paymentMethod == null)return  Get.snackbar("Error", "Please select a payment method");
     if(deliveryType == null)return  Get.snackbar("Error", "Please select order type");
-    update();
+    if(dataAddress.isEmpty){
+      Get.snackbar("Error", "Please select Shipping Address");
+    }
+
     statusRequest = StatusRequest.loading;
+    update();
     Map data ={
     "usersid" :  myServices.sharedPreferences.getString("id"),
     "addressid" : addressId.toString() ,
